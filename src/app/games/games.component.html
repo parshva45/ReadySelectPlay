@@ -1,3 +1,6 @@
-<p>
-  games works!
-</p>
+<ul class="list-group">
+  <li *ngFor="let game of games"
+      class="list-group-item">
+    <b>{{game.name}}</b>
+  </li>
+</ul>
