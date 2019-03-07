@@ -1,13 +1,33 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm">
-      One of three columns
+    <div class="col-1">
+      <div class="back-button">&#8592;</div>
     </div>
-    <div class="col-sm">
-      One of three columns
+    <div class="col-5">
+      <div class="img-left">
+        <img class="imagethumbnail align-self-middle"
+             src="{{game.image}}"
+              alt="Image of {{game.name}}">
+      </div>
     </div>
-    <div class="col-sm">
-      One of three columns
+    <div class="col-5">
+      <div class="game-name">{{game.name}}</div>
+    </div>
+    <div class="col-1">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <span class="titleText">Number of Players:</span> {{game.minPlayers}} to {{game.maxPlayers}}<br/>
+      <span class="titleText">Average Game Length:</span> {{game.playingTime}}<br/>
+      <span class="titleText">Complexity:</span> {{game.complexity}}<br/>
+      <span class="titleText">Category:</span> {{game.category}}<br/>
+      <span class="titleText">Mechanics:</span> {{game.mechanics}}<br/>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <span class="titleText">Description:</span> {{game.description}}
     </div>
   </div>
 </div>

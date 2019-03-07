@@ -1,0 +1,30 @@
+.titleText {
+  font-weight: bold;
+}
+.img-left align-middle{
+  display: inline-block;
+  position: relative;
+  float: left;
+}
+.imagethumbnail {
+  max-width: 100%;
+  max-height: 300px;
+}
+.game-name {
+  margin:0;
+  position: absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%, -50%);
+  font-weigth: bold;
+  font-size: 32px;
+}
+.back-button {
+  margin:0;
+  position: absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%, -50%);
+  font-weigth: bold;
+  font-size: 24px;
+}
