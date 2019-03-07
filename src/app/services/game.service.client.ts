@@ -12,6 +12,11 @@ export class GameServiceClient {
       .then(response => response.json());
   }
 
+  getGameById(gameId) {
+    return fetch(this.GAME_URL + '/' + gameId)
+      .then(response => response.json());
+  }
+
   getBgg(i) {
     return fetch('https://bgg-json.azurewebsites.net/thing/' + i)
       .then(response => response.json());
