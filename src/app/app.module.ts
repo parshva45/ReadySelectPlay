@@ -9,6 +9,7 @@ import { GameDetailsComponent } from './game-details/game-details.component';
 import { HomeComponent } from './home/home.component';
 import { GameResultComponent } from './game-result/game-result.component';
 import { VotingCountComponent } from './voting-count/voting-count.component';
+import {RoomServiceClient} from './services/room.service.client';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { VotingCountComponent } from './voting-count/voting-count.component';
     AppRoutingModule
   ],
   providers: [
-    GameServiceClient
+    GameServiceClient,
+    RoomServiceClient
   ],
   bootstrap: [AppComponent]
 })
