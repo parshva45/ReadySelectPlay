@@ -11,6 +11,9 @@ import { GameResultComponent } from './game-result/game-result.component';
 import { VotingCountComponent } from './voting-count/voting-count.component';
 import {RoomServiceClient} from './services/room.service.client';
 import { FiltersComponent } from './filters/filters.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatInputModule, MatButtonModule, MatSelectModule, MatIconModule } from '@angular/material';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,13 @@ import { FiltersComponent } from './filters/filters.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    FormsModule,
+    MatInputModule,
+    MatButtonModule,
+    MatSelectModule,
+    MatIconModule
   ],
   providers: [
     GameServiceClient,
