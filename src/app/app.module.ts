@@ -17,6 +17,7 @@ import {
   MatListModule
 } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { UserAddComponent } from './user-add/user-add.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     HomeComponent,
     GameResultComponent,
     VotingCountComponent,
-    FiltersComponent
+    FiltersComponent,
+    UserAddComponent
   ],
   imports: [
     BrowserModule,
