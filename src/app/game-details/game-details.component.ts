@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {GameServiceClient} from '../services/game.service.client';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-game-details',
@@ -10,6 +11,7 @@ import {GameServiceClient} from '../services/game.service.client';
 export class GameDetailsComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
+              private location: Location,
               private gameService: GameServiceClient) {
     this.route.params.subscribe(params => this.setGameId(params));
   }
@@ -25,6 +27,10 @@ export class GameDetailsComponent implements OnInit {
   getGameById(gameId) {
     this.gameService.getGameById(gameId)
       .then(response => this.game = response);
+  }
+
+  goBack() {
+    this.location.back();
   }
 
   ngOnInit() {

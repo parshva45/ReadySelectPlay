@@ -1,8 +1,21 @@
+<button type="button"
+        (click)="goBack()"
+        class="btn back-btn">
+  <i class="fa fa-chevron-left"></i>
+</button>
+
+<nav class="navbar navbar-light bg-light fixed-top">
+  <h3 class="navbar-brand navbar-brand-center">
+    Game Details
+  </h3>
+</nav>
+<div class="col-12" style="height:64px;"></div>
+
 <div class="container">
   <div class="row">
-    <div class="col-1">
-      <div class="back-button">&#8592;</div>
-    </div>
+    <!--<div class="col-1">-->
+      <!--<div class="back-button">&#8592;</div>-->
+    <!--</div>-->
     <div class="col-5">
       <div class="img-left">
         <img class="imagethumbnail align-self-middle"
@@ -10,11 +23,11 @@
               alt="Image of {{game.name}}">
       </div>
     </div>
-    <div class="col-5">
+    <div class="col-7">
       <div class="game-name">{{game.name}}</div>
     </div>
-    <div class="col-1">
-    </div>
+    <!--<div class="col-1">-->
+    <!--</div>-->
   </div>
   <div class="row">
     <div class="col-12">
@@ -23,11 +36,8 @@
       <span class="titleText">Complexity:</span> {{game.complexity}}<br/>
       <span class="titleText">Category:</span> {{game.category}}<br/>
       <span class="titleText">Mechanics:</span> {{game.mechanics}}<br/>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-12">
-      <span class="titleText">Description:</span> {{game.description}}
+      <span class="titleText">Description: </span>
+      <span [innerHTML]="game.description"></span>
     </div>
   </div>
 </div>

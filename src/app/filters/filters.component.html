@@ -9,6 +9,19 @@
 </nav>
 <div class="col-12" style="height:64px;"></div>
 
-<div *ngFor="let game of games">
-  {{game.name}}
-</div>
+<mat-list>
+  <mat-list-item *ngFor="let game of games">
+    <img matListAvatar src="{{game.thumbnail}}" alt="No Image">
+    <h3 matLine> {{game.name}} </h3>
+    <p matLine>
+      <i class="fas fa-user-friends"></i> {{game.minPlayers}} to {{game.maxPlayers}}
+      &nbsp;<i class="far fa-clock"></i> {{game.playingTime}} min
+      &nbsp;<i class="fas fa-tag"></i> {{game.category}}
+    </p>
+    <button type="button"
+            (click)="goToGameDetails(game.gameId)"
+            class="btn info-button">
+      <i class="fas fa-info-circle"></i>
+    </button>
+  </mat-list-item>
+</mat-list>
