@@ -12,8 +12,8 @@ import { VotingCountComponent } from './voting-count/voting-count.component';
 import {RoomServiceClient} from './services/room.service.client';
 import { FiltersComponent } from './filters/filters.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatInputModule, MatButtonModule, MatSelectModule, MatIconModule } from '@angular/material';
-import { FormsModule } from '@angular/forms';
+import { MatInputModule, MatButtonModule, MatSelectModule, MatIconModule, MatBadgeModule, MatChipsModule } from '@angular/material';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -33,7 +33,10 @@ import { FormsModule } from '@angular/forms';
     MatInputModule,
     MatButtonModule,
     MatSelectModule,
-    MatIconModule
+    MatIconModule,
+    MatBadgeModule,
+    ReactiveFormsModule,
+    MatChipsModule
   ],
   providers: [
     GameServiceClient,
