@@ -10,6 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { GameResultComponent } from './game-result/game-result.component';
 import { VotingCountComponent } from './voting-count/voting-count.component';
 import {RoomServiceClient} from './services/room.service.client';
+import { FiltersComponent } from './filters/filters.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import {RoomServiceClient} from './services/room.service.client';
     GameDetailsComponent,
     HomeComponent,
     GameResultComponent,
-    VotingCountComponent
+    VotingCountComponent,
+    FiltersComponent
   ],
   imports: [
     BrowserModule,

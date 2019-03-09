@@ -1,0 +1,13 @@
+.navbar-brand-center {
+  margin: 0 auto;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.back-btn {
+  z-index: 1031;
+  margin-top: 10px;
+  margin-left: 10px;
+  position: fixed;
+  font-size: larger;
+}

@@ -1,0 +1,3 @@
+{"_id":{"$oid":"5c819b87ac8404a74c00a41b"},"name":"Room 1","games":[66,156,225,356,467,561,716,802],"users":[],"isVotingInProgress":false,"results":[356,156,802]}
+{"_id":{"$oid":"5c82ef0dac8404a74c00ebb3"},"name":"Room 2","games":[66,156,225,356,561,716],"users":[{"$oid":"5c8192f0ac8404a74c00a083"},{"$oid":"5c819325ac8404a74c00a0a0"}],"isVotingInProgress":true,"results":[66]}
+{"_id":{"$oid":"5c82efc6ac8404a74c00ec11"},"name":"Room 3","games":[156,225,467,561,716],"users":[],"isVotingInProgress":false,"results":[]}

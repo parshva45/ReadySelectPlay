@@ -1,3 +1,50 @@
-<p>
-  home works!
-</p>
+<nav class="navbar navbar-light bg-light fixed-top">
+  <h3 class="navbar-brand navbar-brand-center">
+    ReadySelectPlay
+  </h3>
+</nav>
+<div class="col-12" style="height:64px;"></div>
+
+<div class="container-fluid">
+<div class="row">
+  <div class="col-6" *ngFor="let room of rooms">
+    <div class="card bg-light">
+      <div class="card-header text-center"><h5>{{room.name}}</h5></div>
+      <div class="card-body">
+        <p class="card-text text-center">
+          {{room.users.length}} Players
+          <br>
+          {{room.games.length}} Games
+        </p>
+      </div>
+      <div class="row">
+        <button type="button"
+                [ngClass]="{disabled: room.isVotingInProgress}"
+                (click)="editRoom(room._id, room.isVotingInProgress)"
+                class="col-3 btn btn-light btn-sm card-action-button">
+          <i class="fas fa-pencil-alt"></i>
+        </button>
+        <button type="button"
+                [ngClass]="{disabled: room.isVotingInProgress}"
+                (click)="filterGames(room._id, room.isVotingInProgress)"
+                class="col-3 btn btn-light btn-sm card-action-button">
+          <i class="fa fa-filter"></i>
+        </button>
+        <button type="button"
+                [ngClass]="{disabled: !room.isVotingInProgress}"
+                (click)="vote(room._id, room.isVotingInProgress)"
+                class="col-3 btn btn-light btn-sm card-action-button">
+          <i class="fas fa-vote-yea"></i>
+          <!--<i class="fas fa-tasks"></i>-->
+        </button>
+        <button type="button"
+                [ngClass]="{disabled: room.results.length === 0}"
+                (click)="previousResults(room._id, room.results)"
+                class="col-3 btn btn-light btn-sm card-action-button">
+          <i class="fas fa-trophy"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

@@ -11,4 +11,9 @@ export class RoomServiceClient {
       .then(response => response.json());
   }
 
+  getAllRooms() {
+    return fetch(this.ROOM_URL)
+      .then(response => response.json());
+  }
+
 }

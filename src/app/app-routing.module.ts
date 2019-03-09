@@ -5,6 +5,7 @@ import {GamesComponent} from './games/games.component';
 import {HomeComponent} from './home/home.component';
 import {GameResultComponent} from './game-result/game-result.component';
 import {VotingCountComponent} from './voting-count/voting-count.component';
+import {FiltersComponent} from './filters/filters.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'room/:roomId/game/:gameId', component: GameDetailsComponent},
   { path: 'room/:roomId/result', component: GameResultComponent},
   { path: 'room/:roomId/voting/count', component: VotingCountComponent},
+  { path: 'room/:roomId/filters', component: FiltersComponent},
   { path: '**', component: HomeComponent}
 ];
 
