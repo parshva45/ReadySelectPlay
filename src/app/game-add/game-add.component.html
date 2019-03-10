@@ -4,7 +4,13 @@
 <div class="row searchBox">
   <div class="col-sm-12 searchBox-inner">
     <div class="form-group has-feedback">
-      <input id="searchText" type="text" class="form-control" name="searchText" placeholder="Search">
+      <input id="searchText"
+             [(ngModel)]="searchText"
+             (keyup)="search(searchText)"
+             type="text"
+             class="form-control"
+             name="searchText"
+             placeholder="Search">
       <span class="glyphicon glyphicon-search form-control-feedback"></span>
     </div>
   </div>
@@ -21,9 +27,9 @@
   <!--</div>-->
   <!--</div>-->
   <div class="row">
-    <div *ngFor="let name of selected" style="margin: 10px; margin-bottom: 20px">
+    <div *ngFor="let name of selected; index as i" style="margin: 10px; margin-bottom: 20px">
       <div class="avatar-icon" style="margin-top: 20px">
-        <span (click)="unselect(name)"><i style="margin-left: 40px;color: red" class="fa fa-times-circle" aria-hidden="true"></i></span>
+        <span (click)="unselect(name, i)"><i style="margin-left: 40px;color: red" class="fa fa-times-circle" aria-hidden="true"></i></span>
         <img src="{{name.thumbnail}}" style="position: absolute; z-index: -1; margin-left: -48px;margin-top: 3px;" width="100" height="100">
       </div>
     </div>
@@ -38,8 +44,8 @@
 </div>
 <div class="card-body" style="width: 100%">
   <div class="list-group" >
-    <div *ngFor="let game of games">
-      <div (click)="select(game)" class="list-group-item">
+    <div *ngFor="let game of filteredGames; index as i">
+      <div (click)="select(game, i)" class="list-group-item">
         <div class="row">
           <!--<div class="avatar-icon col-1 col-sm-2" style="margin-left: 1%">-->
           <div class="avatar-icon col-xl-1 col-2 " style="margin-left: 1%">

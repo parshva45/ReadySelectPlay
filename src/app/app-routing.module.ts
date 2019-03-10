@@ -15,7 +15,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent},
   { path: 'games', component: GamesComponent},
   { path: 'room/:roomId/user', component: UserAddComponent},
-  { path: 'room/game', component: GameAddComponent},
+  { path: 'room/:roomId/game', component: GameAddComponent},
   { path: 'room/:roomId/game/:gameId', component: GameDetailsComponent},
   { path: 'room/:roomId/result', component: GameResultComponent},
   { path: 'room/:roomId/voting/count', component: VotingCountComponent},

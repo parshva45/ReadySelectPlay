@@ -14,7 +14,7 @@ import { FiltersComponent } from './filters/filters.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
   MatInputModule, MatButtonModule, MatSelectModule, MatIconModule, MatBadgeModule, MatChipsModule,
-  MatListModule
+  MatListModule, MatSidenavModule
 } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserAddComponent } from './user-add/user-add.component';
@@ -47,7 +47,8 @@ import { GameAddComponent } from './game-add/game-add.component';
     MatBadgeModule,
     ReactiveFormsModule,
     MatChipsModule,
-    MatListModule
+    MatListModule,
+    MatSidenavModule
   ],
   providers: [
     GameServiceClient,
