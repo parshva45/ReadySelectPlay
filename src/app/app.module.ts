@@ -18,6 +18,9 @@ import {
 } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserAddComponent } from './user-add/user-add.component';
+import { VotingResultComponent } from './voting-result/voting-result.component';
+import {UserServiceClient} from './services/user.service.client';
+import { GameAddComponent } from './game-add/game-add.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,9 @@ import { UserAddComponent } from './user-add/user-add.component';
     GameResultComponent,
     VotingCountComponent,
     FiltersComponent,
-    UserAddComponent
+    UserAddComponent,
+    VotingResultComponent,
+    GameAddComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +51,8 @@ import { UserAddComponent } from './user-add/user-add.component';
   ],
   providers: [
     GameServiceClient,
-    RoomServiceClient
+    RoomServiceClient,
+    UserServiceClient
   ],
   bootstrap: [AppComponent]
 })

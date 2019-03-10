@@ -1,0 +1,113 @@
+
+.searchBox {
+  padding: 0 !important;
+  margin: 0 !important;
+  height: 60px;
+  width: 100%;
+}
+
+.searchBox-inner {
+  height: 100%;
+  width: 100%;
+  padding: 10px !important;
+  background-color: #fbfbfb;
+}
+
+/*#searchBox-inner input {
+  box-shadow: none;
+}*/
+
+.searchBox-inner input:focus {
+  outline: none;
+  border: none;
+  box-shadow: none;
+}
+
+
+.avatar-icon img {
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+}
+
+
+.wrapper {
+  display:relative;
+}
+
+
+.wrapper .glyphicon {
+  position: absolute;
+  top: 20px;
+  left: 40px;
+  font-size: 40px;
+  color: white;
+}
+
+@media screen and (max-width: 700px) {
+  .app {
+    top: 0;
+    height: 100%;
+  }
+  .heading {
+    height: 70px;
+    background-color: #009688;
+  }
+  .fa-2x {
+    font-size: 2.3em !important;
+  }
+  .heading-avatar {
+    padding: 0 !important;
+  }
+  .heading-avatar-icon img {
+    height: 50px;
+    width: 50px;
+  }
+  .heading-compose {
+    padding: 5px !important;
+  }
+  .heading-compose i {
+    color: #fff;
+    cursor: pointer;
+  }
+  .heading-dot {
+    padding: 5px !important;
+    margin-left: 10px !important;
+  }
+  .heading-dot i {
+    color: #fff;
+    cursor: pointer;
+  }
+  .sideBar {
+    height: calc(100% - 130px);
+  }
+  .sideBar-body {
+    height: 80px;
+  }
+  .sideBar-avatar {
+    text-align: left;
+    padding: 0 8px !important;
+  }
+  .avatar-icon img {
+    height: 55px;
+    width: 55px;
+  }
+  .sideBar-main {
+    padding: 0 !important;
+  }
+  .sideBar-main .row {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  .sideBar-name {
+    padding: 10px 5px !important;
+  }
+  .name-meta {
+    font-size: 16px;
+    padding: 5% !important;
+  }
+  .sideBar-time {
+    padding: 10px !important;
+  }
+
+}
