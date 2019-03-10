@@ -3,25 +3,47 @@
 </button>
 
 <nav class="navbar navbar-light bg-light fixed-top">
-  <h3 class="navbar-brand navbar-brand-center">
+  <h2 class="navbar-brand navbar-brand-center">
     Filter Games
-  </h3>
+  </h2>
 </nav>
 <div class="col-12" style="height:64px;"></div>
 
-<mat-list>
-  <mat-list-item *ngFor="let game of games">
-    <img matListAvatar src="{{game.thumbnail}}" alt="No Image">
-    <h3 matLine> {{game.name}} </h3>
-    <p matLine>
-      <i class="fas fa-user-friends"></i> {{game.minPlayers}} to {{game.maxPlayers}}
-      &nbsp;<i class="far fa-clock"></i> {{game.playingTime}} min
-      &nbsp;<i class="fas fa-tag"></i> {{game.category}}
-    </p>
-    <button type="button"
-            (click)="goToGameDetails(game.gameId)"
-            class="btn info-button">
-      <i class="fas fa-info-circle"></i>
-    </button>
-  </mat-list-item>
-</mat-list>
+<div>
+  <span style="padding-left: 16px; font-size: 26px;">{{games.length}} Games</span>
+  <button type="button"
+          style="margin-right: 15px;"
+          class="btn btn-dark float-right"
+          (click)="filters.toggle()">
+    Filters
+  </button>
+</div>
+
+<mat-sidenav-container class="example-container">
+
+  <mat-sidenav #filters
+               [(opened)]="opened"
+               (opened)="opened = true"
+               (closed)="opened = false"
+               position="end">
+    Filters here ahahahah
+  </mat-sidenav>
+
+  <mat-list>
+    <mat-list-item *ngFor="let game of games">
+      <img matListAvatar src="{{game.thumbnail}}" alt="No Image">
+      <h3 matLine> {{game.name}} </h3>
+      <p matLine>
+        <i class="fas fa-user-friends"></i> {{game.minPlayers}} to {{game.maxPlayers}}
+        &nbsp;<i class="far fa-clock"></i> {{game.playingTime}} min
+        &nbsp;<i class="fas fa-tag"></i> {{game.category}}
+      </p>
+      <button type="button"
+              (click)="goToGameDetails(game.gameId)"
+              class="btn info-button">
+        <i class="fas fa-info-circle"></i>
+      </button>
+    </mat-list-item>
+  </mat-list>
+
+</mat-sidenav-container>

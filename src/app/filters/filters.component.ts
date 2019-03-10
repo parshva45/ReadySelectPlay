@@ -2,11 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {RoomServiceClient} from '../services/room.service.client';
 import {GameServiceClient} from '../services/game.service.client';
+import { ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-filters',
   templateUrl: './filters.component.html',
-  styleUrls: ['./filters.component.css']
+  styleUrls: ['./filters.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class FiltersComponent implements OnInit {
 
@@ -19,6 +21,8 @@ export class FiltersComponent implements OnInit {
 
   roomId = '';
   games = [];
+  filteredGames = [];
+  opened = false;
 
   getRoomById(roomId) {
     this.roomId = roomId;

@@ -14,9 +14,13 @@ import { FiltersComponent } from './filters/filters.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
   MatInputModule, MatButtonModule, MatSelectModule, MatIconModule, MatBadgeModule, MatChipsModule,
-  MatListModule
+  MatListModule, MatSidenavModule
 } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { UserAddComponent } from './user-add/user-add.component';
+import { VotingResultComponent } from './voting-result/voting-result.component';
+import {UserServiceClient} from './services/user.service.client';
+import { GameAddComponent } from './game-add/game-add.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +30,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     HomeComponent,
     GameResultComponent,
     VotingCountComponent,
-    FiltersComponent
+    FiltersComponent,
+    UserAddComponent,
+    VotingResultComponent,
+    GameAddComponent
   ],
   imports: [
     BrowserModule,
@@ -40,11 +47,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatBadgeModule,
     ReactiveFormsModule,
     MatChipsModule,
-    MatListModule
+    MatListModule,
+    MatSidenavModule
   ],
   providers: [
     GameServiceClient,
-    RoomServiceClient
+    RoomServiceClient,
+    UserServiceClient
   ],
   bootstrap: [AppComponent]
 })

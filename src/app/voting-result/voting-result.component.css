@@ -1,0 +1,23 @@
+.-header{
+  text-align: center;
+}
+
+.card{
+  text-align: center;
+  position: relative;
+  top: 35%;
+  left: 30%;
+  width: 40%;
+}
+
+.demo{
+  padding-bottom: 10%;
+}
+
+.btn{
+  text-align: center;
+  width: 100%;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+}
