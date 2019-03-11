@@ -31,7 +31,11 @@
   float: right
 }
 
-
+.start-voting-btn {
+  position: fixed;
+  bottom: 0;
+  z-index: 2;
+}
 
 .example-container {
   position: absolute !important;
