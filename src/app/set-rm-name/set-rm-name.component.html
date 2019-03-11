@@ -6,3 +6,33 @@
 <div class="col-12" style="height:64px;"></div>
 
 <div><input class="roomNameBox" type="text" value="Set Room Name"></div>
+
+<div class="card" style="background-color: whitesmoke;margin-bottom: 20px">
+  <div class="card-header">
+    Friends
+  </div>
+</div>
+<div class="card-body" style="width: 100%">
+  <div class="list-group" >
+    <div *ngFor="let person of filteredPeople; index as i">
+      <div (click)="select(person, i)" class="list-group-item">
+        <div class="row">
+          <!--<div class="avatar-icon col-1 col-sm-2" style="margin-left: 1%">-->
+          <div class="avatar-icon col-xl-1 col-2 " style="margin-left: 1%">
+            <img width="10px" src={{person.src}}>
+          </div>
+          <!--<div style="left: 0; position: relative;" class="col-10 col-xs-8">-->
+          <div style="left:10%; position: relative;" class="col-xl-10 col-8 ">
+            {{person.name}}
+            <br>
+            {{person.email}}
+          </div>
+          <!--<span class="col-1 col-xs-2" style="right: 0; position: absolute;margin-top: 15px">-->
+          <span class="col-xl-1 col-2" style="right: 0; position: absolute;margin-top: 15px">
+              <i style="" class="fa fa-plus" aria-hidden="true"></i>
+            </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

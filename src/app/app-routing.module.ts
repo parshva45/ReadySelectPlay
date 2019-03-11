@@ -9,6 +9,8 @@ import {FiltersComponent} from './filters/filters.component';
 import {UserAddComponent} from './user-add/user-add.component';
 import {VotingResultComponent} from './voting-result/voting-result.component';
 import {GameAddComponent} from './game-add/game-add.component';
+import {SetRmNameComponent} from './set-rm-name/set-rm-name.component';
+import {VotingScreenComponent} from './voting-screen/voting-screen.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -16,8 +18,10 @@ const routes: Routes = [
   { path: 'games', component: GamesComponent},
   { path: 'room/:roomId/user', component: UserAddComponent},
   { path: 'room/:roomId/game', component: GameAddComponent},
+  { path: 'setname', component: SetRmNameComponent},
   { path: 'room/:roomId/game/:gameId', component: GameDetailsComponent},
   { path: 'room/:roomId/result', component: GameResultComponent},
+  { path: 'room/:roomID/voting', component: VotingScreenComponent},
   { path: 'room/:roomId/voting/count', component: VotingCountComponent},
   { path: 'room/:roomId/filters', component: FiltersComponent},
   { path: 'room/:roomId/voting/result', component: VotingResultComponent},

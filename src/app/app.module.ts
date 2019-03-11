@@ -19,8 +19,10 @@ import {
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserAddComponent } from './user-add/user-add.component';
 import { VotingResultComponent } from './voting-result/voting-result.component';
-import {UserServiceClient} from './services/user.service.client';
+import { UserServiceClient} from './services/user.service.client';
 import { GameAddComponent } from './game-add/game-add.component';
+import { SetRmNameComponent} from './set-rm-name/set-rm-name.component';
+import { VotingScreenComponent} from './voting-screen/voting-screen.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,9 @@ import { GameAddComponent } from './game-add/game-add.component';
     FiltersComponent,
     UserAddComponent,
     VotingResultComponent,
-    GameAddComponent
+    GameAddComponent,
+    SetRmNameComponent,
+    VotingScreenComponent
   ],
   imports: [
     BrowserModule,
