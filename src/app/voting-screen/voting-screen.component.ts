@@ -44,7 +44,10 @@ export class VotingScreenComponent implements OnInit {
   submitVote() {
     const item = this.result[Math.floor(Math.random() * this.result.length)] ;
     this.roomService.addResult(this.roomId, item)
-      .then(res => console.log(res));
+      .then(res => {
+        console.log(res);
+        this.router.navigate(['room/' + this.roomId + '/voting/result']);
+      });
   }
 
   ngOnInit() {
