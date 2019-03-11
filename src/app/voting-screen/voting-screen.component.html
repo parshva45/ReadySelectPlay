@@ -1,7 +1,8 @@
+
 <button type="button"
         (click)="goBack()"
         class="btn back-btn">
-  <i class="fa fa-chevron-left"></i>
+  <i class="fas fa-home"></i>
 </button>
 
 <nav class="navbar navbar-light bg-light fixed-top">
@@ -10,18 +11,12 @@
   </h2>
 </nav>
 <div class="col-12" style="height:64px;"></div>
+<mat-list>
+  <mat-list-item *ngFor="let game of games">
+    <mat-checkbox style="left: 10;position: absolute" (change)="selectedGame(game)">
 
-<p>Voting screen</p>
-<button type="button"
-        (click)="submitVote()"
-        class="btn btn-dark btn-lg btn-block start-voting-btn">
-  Submit Vote
-</button>
-
-<mat-sidenav-container class="example-container">
-  <mat-list>
-    <mat-list-item *ngFor="let game of filteredGames">
-      <img matListAvatar src="{{game.thumbnail}}" alt="No Image">
+    </mat-checkbox>
+      <img style="margin-left: 40px" matListAvatar src="{{game.thumbnail}}" alt="No Image">
       <h3 matLine> {{game.name}} </h3>
       <p matLine>
         <i class="fas fa-user-friends"></i> {{game.minPlayers}} to {{game.maxPlayers}}
@@ -33,6 +28,11 @@
               class="btn info-button">
         <i class="fas fa-info-circle"></i>
       </button>
-    </mat-list-item>
-  </mat-list>
-</mat-sidenav-container>
+  </mat-list-item>
+</mat-list>
+
+<button type="button"
+        (click)="submitVote()"
+        class="btn btn-dark btn-lg btn-block start-voting-btn">
+  Submit Vote
+</button>

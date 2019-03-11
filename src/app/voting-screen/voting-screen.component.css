@@ -1,3 +1,17 @@
+.mat-checkbox-checked.mat-accent .mat-checkbox-background, .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
+  background-color: rgb(52, 58, 64) !important;
+}
+
+.mat-ripple-element {
+  background: rgba(52, 58, 64, .4) !important;
+}
+
+.mat-list-item .mat-list-avatar {
+  border-radius: 0 !important;
+  width:50px !important;
+  height: 50px !important;
+}
+
 .navbar-brand-center {
   margin: 0 auto;
   padding-top: 8px;
@@ -17,11 +31,7 @@
   float: right
 }
 
-.mat-list-item .mat-list-avatar {
-  border-radius: 0 !important;
-  width:50px !important;
-  height: 50px !important;
-}
+
 
 .example-container {
   position: absolute !important;

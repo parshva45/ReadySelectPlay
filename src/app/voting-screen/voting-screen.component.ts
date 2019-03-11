@@ -16,32 +16,46 @@ export class VotingScreenComponent implements OnInit {
               private location: Location,
               private roomService: RoomServiceClient,
               private gameService: GameServiceClient) {
-    this.route.params.subscribe(params => this.getRoomById(params['roomId']));
+    this.route.params.subscribe(params => this.roomId = params['roomId']);
   }
-
+  vm = this;
   roomId = '';
   filteredGames = [];
+  games = [];
+  result = [];
 
   goBack() {
-    this.location.back();
+    this.router.navigate(['home']);
   }
 
   goToGameDetails(gameId) {
     this.router.navigate(['room/' + this.roomId + '/game/' + gameId]);
   }
 
-  getRoomById(roomId) {
-    this.roomId = roomId;
-    // this.roomService
-    //   .getRoomById(roomId)
-    //   .then(room => this.getGames(room.games));
+  selectedGame(game) {
+    const index = this.result.indexOf(game.gameId);
+    if (index > -1) {
+      this.result.splice(index,1);
+    } else {
+      this.result.push(game.gameId);
+    }
+    console.log(this.result);
   }
-
   submitVote() {
-  //  empty for now
+    const item = this.result[Math.floor(Math.random() * this.result.length)] ;
+    this.roomService.addResult(this.roomId, item)
+      .then(res => console.log(res));
   }
 
   ngOnInit() {
+    this.roomService.getRoomById(this.roomId)
+      .then(room => room.filteredGames.forEach(function(game) {
+        this.gameService.getGameById(game)
+          .then(function(gameObj) {
+            this.games.push(gameObj);
+          }.bind(this));
+      }.bind(this)
+      ));
   }
 
 }

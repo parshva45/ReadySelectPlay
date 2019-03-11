@@ -51,6 +51,16 @@ export class RoomServiceClient {
       .then(response => response.json());
   }
 
+  addResult(roomId, gameId) {
+    return fetch(this.ROOM_URL + '/' + roomId + '/result/add', {
+      body: JSON.stringify({gameId}),
+      method: 'put',
+      headers: {
+        'content-type': 'application/json'
+      }
+    }).then(response => response.json());
+  }
+
   getAllRooms() {
     return fetch(this.ROOM_URL)
       .then(response => response.json());

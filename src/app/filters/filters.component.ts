@@ -166,8 +166,8 @@ export class FiltersComponent implements OnInit {
       .initializeVoting(newRoom, this.roomId)
       .then((res) => {
         console.log(res);
-        alert('Go to voting screen!');
-        // this.router.navigate(['room/' + this.roomId + '/voting']);
+        // alert('Go to voting screen!');
+        this.router.navigate(['room/' + this.roomId + '/voting']);
       });
   }
 
