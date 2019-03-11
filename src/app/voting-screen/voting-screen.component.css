@@ -1,0 +1,32 @@
+.navbar-brand-center {
+  margin: 0 auto;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.back-btn {
+  z-index: 1031;
+  margin-top: 10px;
+  margin-left: 10px;
+  position: fixed;
+  font-size: larger;
+}
+
+.info-button {
+  font-size: larger;
+  float: right
+}
+
+.mat-list-item .mat-list-avatar {
+  border-radius: 0 !important;
+  width:50px !important;
+  height: 50px !important;
+}
+
+.example-container {
+  position: absolute !important;
+  top: 105px;
+  bottom: 49px;
+  left: 0;
+  right: 0;
+}
