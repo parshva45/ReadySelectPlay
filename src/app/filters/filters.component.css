@@ -27,14 +27,60 @@
   background-color: transparent !important;
 }
 
+.number-input {
+  width: 55px;
+  height: 30px;
+  display: inline;
+  text-align: center
+}
+
 .mat-drawer-container {
   background-color: white !important;
+}
+
+.mat-drawer-inner-container {
+  width: 220px !important;
 }
 
 .example-container {
   position: absolute !important;
   top: 105px;
-  bottom: 0;
+  bottom: 49px;
   left: 0;
   right: 0;
+}
+
+.filter-symbols {
+  float: right;
+  font-size: large;
+  position: inherit;
+  top: 2px;
+}
+
+.input-item {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.checkbox-item {
+  padding-top: 7px;
+  padding-bottom: 0;
+}
+
+.mat-checkbox-checked.mat-accent .mat-checkbox-background, .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
+  background-color: rgb(52, 58, 64) !important;
+}
+
+.mat-ripple-element {
+  background: rgba(52, 58, 64, .4) !important;
+}
+
+.mat-checkbox-layout {
+  white-space: normal !important;
+}
+
+.start-voting-btn {
+  position: fixed;
+  bottom: 0;
+  z-index: 2;
 }

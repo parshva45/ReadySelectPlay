@@ -9,34 +9,157 @@
 </nav>
 <div class="col-12" style="height:64px;"></div>
 
+<button type="button"
+        (click)="initializeVoting()"
+        class="btn btn-dark btn-lg btn-block start-voting-btn">
+  Initialize Voting Process
+</button>
+
 <div>
-  <span style="padding-left: 16px; font-size: 26px;">{{games.length}} Games</span>
+  <span style="padding-left: 16px; font-size: 26px;">{{filteredGames.length}} Games</span>
   <button type="button"
-          style="margin-right: 15px;"
+          style="margin-right: 15px; z-index: 1031;"
           class="btn btn-dark float-right"
+          matBadge="{{noOfFilters}}"
+          matBadgeColor="warn"
           (click)="filters.toggle()">
     Filters
+    &nbsp;
+    <i class="fas fa-chevron-left" *ngIf="!opened"></i>
+    <i class="fas fa-chevron-right" *ngIf="opened"></i>
   </button>
 </div>
 
 <mat-sidenav-container class="example-container">
 
   <mat-sidenav #filters
-               [(opened)]="opened"
+               [autoFocus]="false"
                (opened)="opened = true"
                (closed)="opened = false"
+               [(opened)]="opened"
                position="end">
-    Filters here ahahahah
+
+    <ul class="list-group">
+      <li class="list-group-item">
+        No. of Players
+        &nbsp;
+        <input type=number
+               [(ngModel)]="appliedFilters.noOfPlayers"
+               (keyup)="applyFilters()"
+               onkeydown="return event.keyCode >= 48 &&
+               event.keyCode <= 57 ||
+               [8,37,39].indexOf(event.keyCode) > -1"
+               class="form-control number-input"/>
+      </li>
+      <li class="list-group-item" (click)="updateFilterOpened('Duration')">
+        Duration (minutes)
+        <i class="fas fa-chevron-down filter-symbols"
+           *ngIf="filterOpened !== 'Duration'"></i>
+        <i class="fas fa-chevron-up filter-symbols"
+           *ngIf="filterOpened === 'Duration'"></i>
+      </li>
+      <li class="list-group-item list-group-item-secondary input-item" *ngIf="filterOpened === 'Duration'">
+        Minimum
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type=number
+               [(ngModel)]="appliedFilters.minDuration"
+               (keyup)="applyFilters()"
+               onkeydown="return event.keyCode >= 48 &&
+               event.keyCode <= 57 ||
+               [8,37,39].indexOf(event.keyCode) > -1"
+               class="form-control number-input"/>
+      </li>
+      <li class="list-group-item list-group-item-secondary input-item" *ngIf="filterOpened === 'Duration'">
+        Maximum
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type=number
+               [(ngModel)]="appliedFilters.maxDuration"
+               (keyup)="applyFilters()"
+               style="margin-top: 5px;"
+               onkeydown="return event.keyCode >= 48 &&
+               event.keyCode <= 57 ||
+               [8,37,39].indexOf(event.keyCode) > -1"
+               class="form-control number-input"/>
+      </li>
+
+      <li class="list-group-item" (click)="updateFilterOpened('Complexity')">
+        <p style="display: inline" *ngIf="appliedFilters.complexities.length < 5">
+          <span matBadge="{{appliedFilters.complexities.length}}" matBadgeOverlap="false">
+            Complexity
+          </span>
+        </p>
+        <span *ngIf="appliedFilters.complexities.length === 5">Complexity</span>
+        <i class="fas fa-chevron-down filter-symbols"
+           *ngIf="filterOpened !== 'Complexity'"></i>
+        <i class="fas fa-chevron-up filter-symbols"
+           *ngIf="filterOpened === 'Complexity'"></i>
+      </li>
+      <div *ngIf="filterOpened === 'Complexity'">
+        <li class="list-group-item list-group-item-secondary checkbox-item"
+            *ngFor="let complexity of complexities">
+          <mat-checkbox (change)="updateAppliedComplexities(complexity)"
+                        [checked]="appliedFilters.complexities.indexOf(complexity) > -1">
+            {{complexity}}
+          </mat-checkbox>
+        </li>
+      </div>
+
+      <li class="list-group-item" (click)="updateFilterOpened('Category')">
+        <p style="display: inline" *ngIf="appliedFilters.categories.length > 0">
+          <span matBadge="{{appliedFilters.categories.length}}" matBadgeOverlap="false">
+            Category
+          </span>
+        </p>
+        <span *ngIf="appliedFilters.categories.length === 0">Category</span>
+        <i class="fas fa-chevron-down filter-symbols"
+           *ngIf="filterOpened !== 'Category'"></i>
+        <i class="fas fa-chevron-up filter-symbols"
+           *ngIf="filterOpened === 'Category'"></i>
+      </li>
+      <div *ngIf="filterOpened === 'Category'">
+        <li class="list-group-item list-group-item-secondary checkbox-item"
+            *ngFor="let category of categories">
+          <mat-checkbox (change)="updateAppliedCategories(category)"
+                        [checked]="appliedFilters.categories.indexOf(category) > -1">
+            {{category}}
+          </mat-checkbox>
+        </li>
+      </div>
+
+      <li class="list-group-item" (click)="updateFilterOpened('Mechanics')">
+        <p style="display: inline" *ngIf="appliedFilters.mechanics.length > 0">
+          <span matBadge="{{appliedFilters.mechanics.length}}" matBadgeOverlap="false">
+            Mechanics
+          </span>
+        </p>
+        <span *ngIf="appliedFilters.mechanics.length === 0">Mechanics</span>
+        <i class="fas fa-chevron-down filter-symbols"
+           *ngIf="filterOpened !== 'Mechanics'"></i>
+        <i class="fas fa-chevron-up filter-symbols"
+           *ngIf="filterOpened === 'Mechanics'"></i>
+      </li>
+      <div *ngIf="filterOpened === 'Mechanics'">
+        <li class="list-group-item list-group-item-secondary checkbox-item"
+            *ngFor="let mechanic of mechanics">
+          <mat-checkbox (change)="updateAppliedMechanics(mechanic)"
+                        [checked]="appliedFilters.mechanics.indexOf(mechanic) > -1">
+            {{mechanic}}
+          </mat-checkbox>
+        </li>
+      </div>
+
+    </ul>
+
   </mat-sidenav>
 
   <mat-list>
-    <mat-list-item *ngFor="let game of games">
+    <mat-list-item *ngFor="let game of filteredGames">
       <img matListAvatar src="{{game.thumbnail}}" alt="No Image">
       <h3 matLine> {{game.name}} </h3>
       <p matLine>
         <i class="fas fa-user-friends"></i> {{game.minPlayers}} to {{game.maxPlayers}}
         &nbsp;<i class="far fa-clock"></i> {{game.playingTime}} min
-        &nbsp;<i class="fas fa-tag"></i> {{game.category}}
+        &nbsp;<i class="fas fa-tag"></i> {{game.category}}<br>
       </p>
       <button type="button"
               (click)="goToGameDetails(game.gameId)"

@@ -21,4 +21,14 @@ export class RoomServiceClient {
       .then(response => response.json());
   }
 
+  initializeVoting(newRoom, roomId) {
+    return fetch(this.ROOM_URL + '/' + roomId, {
+      body: JSON.stringify(newRoom),
+      method: 'put',
+      headers: {
+        'content-type': 'application/json'
+      }
+    }).then(response => response.json());
+  }
+
 }

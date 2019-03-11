@@ -16,7 +16,26 @@ export class GamesComponent implements OnInit {
   loadAllGames() {
     this.gameService
       .getAllGames()
-      .then(games => this.games = games);
+      .then(games => {
+        this.games = games;
+        let mechanics = [];
+        games.forEach(function(game) {
+          if(game.mechanics)
+            game.mechanics.forEach(function (mechanic) {
+              if (mechanics.indexOf(mechanic) === -1) {
+                mechanics.push(mechanic);
+              }
+            });
+        });
+        // for (game: games) {
+        //   for (mechanic in game['mechanics']) {
+        //     if (mechanics.indexOf(mechanic) > -1) {
+        //       mechanics.push(mechanic);
+        //     }
+        //   }
+        // }
+        console.log(mechanics.sort());
+      });
   }
 
   postGame(i) {
