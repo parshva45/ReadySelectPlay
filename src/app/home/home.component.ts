@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {RoomServiceClient} from '../services/room.service.client';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -8,28 +9,37 @@ import {RoomServiceClient} from '../services/room.service.client';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private roomService: RoomServiceClient) { }
+  constructor(private roomService: RoomServiceClient,
+              private router: Router) { }
 
   rooms = [];
 
   editRoom(roomId, isVotingInProgress) {
     isVotingInProgress ? alert('Voting in progress! Wait..') :
-    alert('Edit room with ID : ' + roomId);
+      this.router.navigate(['room/' + roomId + '/friends']);
   }
 
   filterGames(roomId, isVotingInProgress) {
     isVotingInProgress ? alert('Voting in progress! Wait..') :
-      alert('Filter games in room with ID : ' + roomId);
+      this.router.navigate(['room/' + roomId + '/filters']);
   }
 
   vote(roomId, isVotingInProgress) {
     !isVotingInProgress ? alert('Wait for party host to start voting..') :
-      alert('Vote among filtered games in room with ID : ' + roomId);
+      this.router.navigate(['room/' + roomId + '/voting']);
   }
 
   previousResults(roomId, results) {
     results.length === 0 ? alert('No history present!') :
       alert('GameIDs of previous winners : ' + results);
+  }
+
+  createRoom() {
+    this.roomService
+      .createRoom()
+      .then(response => {
+        this.router.navigate(['room/' + response._id + '/friends']);
+      });
   }
 
   ngOnInit() {

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {Location} from '@angular/common';
+import {ActivatedRoute, Router} from '@angular/router';
+import {RoomServiceClient} from '../services/room.service.client';
 
 @Component({
   selector: 'app-set-rm-name',
@@ -7,9 +10,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SetRmNameComponent implements OnInit {
 
-  constructor() { }
+  constructor(private location: Location,
+              private router: Router,
+              private route: ActivatedRoute,
+              private roomService: RoomServiceClient) {
+    this.route.params.subscribe(params => this.roomId = params['roomId']);
+  }
+
+  roomId = '';
+  room = {};
+
+  goBack() {
+    this.location.back();
+  }
+
+  submit() {
+    this.router.navigate(['home']);
+  }
 
   ngOnInit() {
+    this.roomService
+      .getRoomById(this.roomId)
+      .then(room => {
+        this.room = room;
+      });
   }
 
 }

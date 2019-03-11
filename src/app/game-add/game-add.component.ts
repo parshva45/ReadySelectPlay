@@ -1,5 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {GameServiceClient} from '../services/game.service.client';
+import {RoomServiceClient} from '../services/room.service.client';
+import {ActivatedRoute, Router} from '@angular/router';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-game-add',
@@ -8,10 +11,17 @@ import {GameServiceClient} from '../services/game.service.client';
 })
 export class GameAddComponent implements OnInit {
 
-  constructor(private gameService: GameServiceClient) {
+  constructor(private gameService: GameServiceClient,
+              private roomService: RoomServiceClient,
+              private route: ActivatedRoute,
+              private router: Router,
+              private location: Location) {
+    this.route.params.subscribe(params => this.roomId = params['roomId']);
   }
 
+  roomId = '';
   games = [];
+  selectedGameIds = [];
   filteredGames = [];
   searchText = '';
   selected = [];
@@ -24,33 +34,51 @@ export class GameAddComponent implements OnInit {
   }
 
   select(game, index) {
-    this.filteredGames.splice(index, 1);
-    // for (let i = 0; i < this.filteredGames.length; i++ ) {
-    //   if (this.filteredGames[i]._id === ppl._id) {
-    //     this.games.splice(i, 1);
-    //   }
-    // }
-    this.selected.push(game);
+
+    this.roomService
+      .addGame(this.roomId, game.gameId)
+      .then(response => {
+        this.filteredGames.splice(index, 1);
+        this.selected.push(game);
+      });
   }
 
   unselect(game, index) {
-    this.selected.splice(index, 1);
-    // for (let i = 0; i < this.selected.length; i++ ) {
-    //   if (this.selected[i]._id === name._id) {
-    //     this.selected.splice(i, 1);
-    //   }
-    // }
-    this.filteredGames.push(game);
+    this.roomService
+      .removeGame(this.roomId, game.gameId)
+      .then(response => {
+        this.selected.splice(index, 1);
+        this.filteredGames.push(game);
+      });
   }
 
+  goBack() {
+    this.location.back();
+  }
+
+  next() {
+    this.router.navigate(['room/' + this.roomId + '/details']);
+  }
 
   ngOnInit() {
-    this.gameService.getAllGames()
-      .then(response => {
-          this.games = response;
-          this.filteredGames = response;
-        }
-      );
+
+    this.roomService
+      .getRoomById(this.roomId)
+      .then(room => {
+        this.selectedGameIds = room.games;
+        this.gameService.getAllGames()
+          .then(response => {
+              response.forEach(game => {
+                this.games.push(game);
+                if (this.selectedGameIds.indexOf(game.gameId) > -1) {
+                  this.selected.push(game);
+                } else {
+                  this.filteredGames.push(game);
+                }
+              });
+            }
+          );
+      });
   }
 
 }

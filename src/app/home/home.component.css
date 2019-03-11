@@ -7,6 +7,7 @@
 .container-fluid {
   padding-top: 15px;
   padding-bottom: 15px;
+  margin-bottom: 50px;
 }
 
 .row {
@@ -34,4 +35,9 @@
 .card-body {
   padding-top: 10px;
   padding-bottom: 10px;
+}
+
+.create-room-btn {
+  position: fixed;
+  bottom: 0;
 }

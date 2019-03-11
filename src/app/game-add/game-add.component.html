@@ -1,4 +1,16 @@
 <!-- Heading End -->
+<button type="button"
+        (click)="goBack()"
+        class="btn back-btn">
+  <i class="fa fa-chevron-left"></i>
+</button>
+
+<nav class="navbar navbar-light bg-light fixed-top">
+  <h2 class="navbar-brand navbar-brand-center">
+    Add Games
+  </h2>
+</nav>
+<div class="col-12" style="height:64px;"></div>
 
 <!-- SearchBox -->
 <div class="row searchBox">
@@ -66,3 +78,11 @@
     </div>
   </div>
 </div>
+
+<div class="col-xs-12" style="height:50px;"></div>
+<button type="button"
+        (click)="next()"
+        style="position: fixed; bottom: 0;"
+        class="btn btn-dark btn-lg btn-block next-btn">
+  Next
+</button>

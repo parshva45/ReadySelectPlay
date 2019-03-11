@@ -3,6 +3,8 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {RoomServiceClient} from '../services/room.service.client';
 import {GameServiceClient} from '../services/game.service.client';
 import { ViewEncapsulation } from '@angular/core';
+import {Location} from '@angular/common';
+
 
 @Component({
   selector: 'app-filters',
@@ -14,6 +16,7 @@ export class FiltersComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
               private router: Router,
+              private location: Location,
               private roomService: RoomServiceClient,
               private gameService: GameServiceClient) {
     this.route.params.subscribe(params => this.getRoomById(params['roomId']));
@@ -166,6 +169,10 @@ export class FiltersComponent implements OnInit {
         alert('Go to voting screen!');
         // this.router.navigate(['room/' + this.roomId + '/voting']);
       });
+  }
+
+  goBack() {
+    this.location.back();
   }
 
   ngOnInit() {
