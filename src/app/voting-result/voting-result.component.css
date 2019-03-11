@@ -4,14 +4,6 @@
   padding-bottom: 8px;
 }
 
-.home-btn {
-  z-index: 1031;
-  margin-top: 10px;
-  margin-left: 10px;
-  position: fixed;
-  font-size: larger;
-}
-
 .-header{
   text-align: center;
 }

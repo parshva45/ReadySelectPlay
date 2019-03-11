@@ -10,10 +10,6 @@ export class VotingResultComponent implements OnInit {
 
   constructor(private router: Router) { }
 
-  goHome() {
-    this.router.navigate(['/home']);
-  }
-
   ngOnInit() {
   }
 
