@@ -1,11 +1,37 @@
+<button type="button"
+        (click)="goBack()"
+        class="btn back-btn">
+  <i class="fa fa-chevron-left"></i>
+</button>
+
 <nav class="navbar navbar-light bg-light fixed-top">
-  <h3 class="navbar-brand navbar-brand-center">
-    ReadySelectPlay
-  </h3>
+  <h2 class="navbar-brand navbar-brand-center">
+    Voting
+  </h2>
 </nav>
 <div class="col-12" style="height:64px;"></div>
 
+<button type="button"
+        (click)="submitVote()"
+        class="btn btn-dark btn-lg btn-block start-voting-btn">
+  Submit Vote
+</button>
 
-<!--<div class="row" *ngFor=@@@numberofgames@@@@@>-->
-  <!--<input type="radio" name="filteredGamesVote" value="game1" checked> Game1-->
-<!--</div>-->
+<mat-sidenav-container class="example-container">
+  <mat-list>
+    <mat-list-item *ngFor="let game of filteredGames">
+      <img matListAvatar src="{{game.thumbnail}}" alt="No Image">
+      <h3 matLine> {{game.name}} </h3>
+      <p matLine>
+        <i class="fas fa-user-friends"></i> {{game.minPlayers}} to {{game.maxPlayers}}
+        &nbsp;<i class="far fa-clock"></i> {{game.playingTime}} min
+        &nbsp;<i class="fas fa-tag"></i> {{game.category}}<br>
+      </p>
+      <button type="button"
+              (click)="goToGameDetails(game.gameId)"
+              class="btn info-button">
+        <i class="fas fa-info-circle"></i>
+      </button>
+    </mat-list-item>
+  </mat-list>
+</mat-sidenav-container>
