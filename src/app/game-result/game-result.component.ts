@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {RoomServiceClient} from '../services/room.service.client';
 
 @Component({
@@ -9,6 +9,7 @@ import {RoomServiceClient} from '../services/room.service.client';
 })
 export class GameResultComponent implements OnInit {
   constructor(private route: ActivatedRoute,
+              private router: Router,
               private roomService: RoomServiceClient) {
     this.route.params.subscribe(params => this.getRoomResult(params));
   }
@@ -21,6 +22,9 @@ export class GameResultComponent implements OnInit {
       );
   }
 
+  goHome() {
+    this.router.navigate(['home']);
+  }
   ngOnInit() {
   }
 
