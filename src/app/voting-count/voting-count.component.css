@@ -16,14 +16,9 @@
   width: 40%;
 }
 
-.demo{
-  padding-bottom: 10%;
+.start-voting-btn {
+  position: fixed;
+  bottom: 0;
+  z-index: 2;
 }
 
-.btn-danger{
-  text-align: center;
-  width: 100%;
-  position: fixed;
-  right: 0;
-  bottom: 0;
-}
