@@ -14,7 +14,7 @@ import { FiltersComponent } from './filters/filters.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
   MatInputModule, MatButtonModule, MatSelectModule, MatIconModule, MatBadgeModule, MatChipsModule,
-  MatListModule, MatSidenavModule, MatCheckboxModule
+  MatListModule, MatSidenavModule, MatCheckboxModule, MatSnackBarModule
 } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserAddComponent } from './user-add/user-add.component';
@@ -53,7 +53,8 @@ import { VotingScreenComponent} from './voting-screen/voting-screen.component';
     MatChipsModule,
     MatListModule,
     MatSidenavModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatSnackBarModule
   ],
   providers: [
     GameServiceClient,

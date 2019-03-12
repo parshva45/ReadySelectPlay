@@ -11,7 +11,7 @@
     <div class="card bg-light">
       <div class="card-header text-center"><h5>{{room.name}}</h5></div>
       <div class="card-body">
-        <p class="card-text text-center">
+        <p class="card-text text-center" style="font-size: 1.25rem;">
           {{room.users.length}} Players
           <br>
           {{room.games.length}} Games
@@ -21,28 +21,28 @@
         <button type="button"
                 [ngClass]="{disabled: room.isVotingInProgress}"
                 (click)="editRoom(room._id, room.isVotingInProgress)"
-                class="col-3 btn btn-light btn-sm card-action-button">
+                class="col-4 btn btn-light btn-sm card-action-button">
           <i class="fas fa-pencil-alt"></i>
         </button>
         <button type="button"
                 [ngClass]="{disabled: room.isVotingInProgress}"
                 (click)="filterGames(room._id, room.isVotingInProgress)"
-                class="col-3 btn btn-light btn-sm card-action-button">
+                class="col-4 btn btn-light btn-sm card-action-button">
           <i class="fa fa-filter"></i>
         </button>
         <button type="button"
                 [ngClass]="{disabled: !room.isVotingInProgress}"
                 (click)="vote(room._id, room.isVotingInProgress)"
-                class="col-3 btn btn-light btn-sm card-action-button">
+                class="col-4 btn btn-light btn-sm card-action-button">
           <i class="fas fa-vote-yea"></i>
           <!--<i class="fas fa-tasks"></i>-->
         </button>
-        <button type="button"
-                [ngClass]="{disabled: room.results.length === 0}"
-                (click)="previousResults(room._id, room.results)"
-                class="col-3 btn btn-light btn-sm card-action-button">
-          <i class="fas fa-trophy"></i>
-        </button>
+        <!--<button type="button"-->
+                <!--[ngClass]="{disabled: room.results.length === 0}"-->
+                <!--(click)="previousResults(room._id, room.results)"-->
+                <!--class="col-3 btn btn-light btn-sm card-action-button">-->
+          <!--<i class="fas fa-trophy"></i>-->
+        <!--</button>-->
       </div>
     </div>
   </div>

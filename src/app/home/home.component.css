@@ -7,7 +7,6 @@
 .container-fluid {
   padding-top: 15px;
   padding-bottom: 15px;
-  margin-bottom: 50px;
 }
 
 .row {
@@ -40,4 +39,8 @@
 .create-room-btn {
   position: fixed;
   bottom: 0;
+}
+
+::ng-deep snack-bar-container.snackbar-position {
+  margin-bottom: 25% !important;
 }
