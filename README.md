@@ -1,3 +1,8 @@
+
+# LINK TO INFORMATION ON HOW TO SET UP AND RUN:
+https://docs.google.com/document/d/1ARMw3orxln6BVFkjOqTQllblbUGZpTonV1vGxv9ww64/edit?usp=sharing
+
+
 # ReadySelectPlay
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.1.
