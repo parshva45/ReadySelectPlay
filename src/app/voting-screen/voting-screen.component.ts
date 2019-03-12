@@ -47,7 +47,7 @@ export class VotingScreenComponent implements OnInit {
     this.roomService.addResult(this.roomId, item)
       .then(res => {
         console.log(res);
-        this.router.navigate(['room/' + this.roomId + '/voting/result']);
+        this.router.navigate(['room/' + this.roomId + '/voting/count']);
       });
   }
 

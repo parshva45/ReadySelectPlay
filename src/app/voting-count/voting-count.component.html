@@ -1,3 +1,24 @@
-<p>
-  voting-count works!
-</p>
+<nav class="navbar navbar-light bg-light fixed-top">
+  <h3 class="navbar-brand navbar-brand-center">
+    Voting Count
+  </h3>
+</nav>
+<div class="col-12" style="height:64px;"></div>
+
+
+<div class="container-fluid">
+  <p class="-header">Your vote has been recorded.
+    <br>
+    Please wait until everyone has voted.</p>
+  <br>
+  <p class="-header">Number of votes received</p>
+  <div class="card">
+    <div class="card-body">
+      5
+    </div>
+  </div>
+  <div class="demo">
+    <button type="button" (click)="viewResult()" class="btn btn-danger">End Voting Process</button>
+  </div>
+
+</div>

@@ -1,29 +1,25 @@
+*.-header{
+  text-align: center;
+}
+
+.game-result{
+  text-align: center;
+}
+
 .navbar-brand-center {
   margin: 0 auto;
   padding-top: 8px;
   padding-bottom: 8px;
 }
 
-.-header{
-  text-align: center;
-}
-
-.card{
-  text-align: center;
-  position: relative;
-  top: 35%;
-  left: 30%;
-  width: 40%;
-}
-
-.demo{
-  padding-bottom: 10%;
-}
-
-.btn-danger{
-  text-align: center;
-  width: 100%;
+.back-btn {
+  z-index: 1031;
+  margin-top: 10px;
+  margin-left: 10px;
   position: fixed;
-  right: 0;
-  bottom: 0;
+  font-size: larger;
+}
+
+.example-card {
+  max-width: 400px;
 }
