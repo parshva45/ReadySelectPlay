@@ -54,7 +54,12 @@
                class="form-control number-input"/>
       </li>
       <li class="list-group-item" (click)="updateFilterOpened('Duration')">
-        Duration (minutes)
+        <p style="display: inline" *ngIf="appliedFilters.minDuration || appliedFilters.maxDuration">
+          <span matBadge="{{appliedFilters.minDuration && appliedFilters.maxDuration ? 2 : 1}}" matBadgeOverlap="false">
+            Duration (minutes)
+          </span>
+        </p>
+        <span *ngIf="!appliedFilters.minDuration && !appliedFilters.maxDuration">Duration (minutes)</span>
         <i class="fas fa-chevron-down filter-symbols"
            *ngIf="filterOpened !== 'Duration'"></i>
         <i class="fas fa-chevron-up filter-symbols"

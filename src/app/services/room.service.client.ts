@@ -16,6 +16,16 @@ export class RoomServiceClient {
     }).then(response => response.json());
   }
 
+  setFilters(roomId, filters) {
+    return fetch(this.ROOM_URL + '/' + roomId + '/filters', {
+      body: JSON.stringify(filters),
+      method: 'put',
+      headers: {
+        'content-type': 'application/json'
+      }
+    }).then(response => response.json());
+  }
+
   addUser(roomId, userId) {
     return fetch(this.ROOM_URL + '/' + roomId + '/user/add', {
       body: JSON.stringify({userId}),
@@ -98,7 +108,15 @@ export class RoomServiceClient {
       users: ['5c8192f0ac8404a74c00a083'],
       isVotingInProgress: false,
       results: [],
-      filteredGames: []
+      filteredGames: [],
+      appliedFilters: {
+        noOfPlayers: null,
+        minDuration: null,
+        maxDuration: null,
+        complexities: ['Light', 'Medium Light', 'Medium', 'Medium Heavy', 'Heavy'],
+        categories: [],
+        mechanics: [],
+      }
     };
 
     return fetch(this.ROOM_URL, {

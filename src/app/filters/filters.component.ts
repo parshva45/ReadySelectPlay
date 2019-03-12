@@ -1,10 +1,8 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {RoomServiceClient} from '../services/room.service.client';
 import {GameServiceClient} from '../services/game.service.client';
-import { ViewEncapsulation } from '@angular/core';
 import {Location} from '@angular/common';
-
 
 @Component({
   selector: 'app-filters',
@@ -55,7 +53,10 @@ export class FiltersComponent implements OnInit {
     this.roomId = roomId;
     this.roomService
       .getRoomById(roomId)
-      .then(room => this.getGames(room.games));
+      .then(room => {
+        this.getGames(room.games);
+        this.appliedFilters = room.appliedFilters;
+      });
   }
 
   getGames(gameIds) {
@@ -70,7 +71,8 @@ export class FiltersComponent implements OnInit {
               const textB = b.name.toUpperCase();
               return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
             });
-            this.filteredGames = this.games;
+            // this.filteredGames = this.games;
+            this.applyFilters();
           }
         });
     });
@@ -115,6 +117,8 @@ export class FiltersComponent implements OnInit {
   }
 
   applyFilters() {
+    this.roomService
+      .setFilters(this.roomId, {filters: this.appliedFilters});
     this.countFilters();
     this.filteredGames = this.games.filter(game => {
       const noOfPlayersFilter = !this.appliedFilters.noOfPlayers || this.appliedFilters.noOfPlayers &&

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {RoomServiceClient} from '../services/room.service.client';
 import {GameServiceClient} from '../services/game.service.client';
@@ -7,7 +7,8 @@ import {Location} from '@angular/common';
 @Component({
   selector: 'app-voting-screen',
   templateUrl: './voting-screen.component.html',
-  styleUrls: ['./voting-screen.component.css']
+  styleUrls: ['./voting-screen.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class VotingScreenComponent implements OnInit {
 
