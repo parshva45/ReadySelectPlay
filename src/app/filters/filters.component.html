@@ -12,6 +12,7 @@
 <div class="col-12" style="height:64px;"></div>
 
 <button type="button"
+        [ngClass]="{disabled: filteredGames.length === 0}"
         (click)="initializeVoting()"
         class="btn btn-dark btn-lg btn-block start-voting-btn">
   Initialize Voting Process

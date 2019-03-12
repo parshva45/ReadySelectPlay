@@ -115,7 +115,7 @@ export class RoomServiceClient {
         maxDuration: null,
         complexities: ['Light', 'Medium Light', 'Medium', 'Medium Heavy', 'Heavy'],
         categories: [],
-        mechanics: [],
+        mechanics: []
       }
     };
 

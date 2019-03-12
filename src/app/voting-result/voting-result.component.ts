@@ -15,15 +15,21 @@ export class VotingResultComponent implements OnInit {
   }
 
   game = '';
+  roomId = '';
+
   getRoomResult(params) {
-    const roomId = params['roomId'];
-    this.roomService.getRoomResult(roomId)
+    this.roomId = params['roomId'];
+    this.roomService.getRoomResult(this.roomId)
       .then(response => this.game = response
       );
   }
 
   goBack(){
     this.router.navigate(['home']);
+  }
+
+  goToGameDetails(gameId) {
+    this.router.navigate(['room/' + this.roomId + '/game/' + gameId]);
   }
 
 

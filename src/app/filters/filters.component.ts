@@ -3,6 +3,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {RoomServiceClient} from '../services/room.service.client';
 import {GameServiceClient} from '../services/game.service.client';
 import {Location} from '@angular/common';
+import {MatSnackBar} from '@angular/material';
 
 @Component({
   selector: 'app-filters',
@@ -16,7 +17,8 @@ export class FiltersComponent implements OnInit {
               private router: Router,
               private location: Location,
               private roomService: RoomServiceClient,
-              private gameService: GameServiceClient) {
+              private gameService: GameServiceClient,
+              private snackBar: MatSnackBar) {
     this.route.params.subscribe(params => this.getRoomById(params['roomId']));
   }
 
@@ -46,7 +48,7 @@ export class FiltersComponent implements OnInit {
     maxDuration: null,
     complexities: [...this.complexities],
     categories: [],
-    mechanics: [],
+    mechanics: []
   };
 
   getRoomById(roomId) {
@@ -55,7 +57,9 @@ export class FiltersComponent implements OnInit {
       .getRoomById(roomId)
       .then(room => {
         this.getGames(room.games);
-        this.appliedFilters = room.appliedFilters;
+        if (room.appliedFilters !== null && room.appliedFilters !== {}) {
+          this.appliedFilters = room.appliedFilters;
+        }
       });
   }
 
@@ -157,22 +161,30 @@ export class FiltersComponent implements OnInit {
   }
 
   initializeVoting() {
-    const filteredGamesIds = [];
-    this.filteredGames.forEach(function (game) {
-      filteredGamesIds.push(game.gameId);
-    });
-
-    const newRoom = {
-      filteredGames: filteredGamesIds,
-      isVotingInProgress: true
-    };
-    this.roomService
-      .initializeVoting(newRoom, this.roomId)
-      .then((res) => {
-        console.log(res);
-        // alert('Go to voting screen!');
-        this.router.navigate(['room/' + this.roomId + '/voting']);
+    if (this.filteredGames.length === 0) {
+      this.snackBar.open('At least one game should be present!', null, {
+        duration: 4000,
+        panelClass: ['snackbar-position'],
+        verticalPosition: 'bottom'
       });
+    } else {
+      const filteredGamesIds = [];
+      this.filteredGames.forEach(function (game) {
+        filteredGamesIds.push(game.gameId);
+      });
+
+      const newRoom = {
+        filteredGames: filteredGamesIds,
+        isVotingInProgress: true
+      };
+      this.roomService
+        .initializeVoting(newRoom, this.roomId)
+        .then((res) => {
+          // console.log(res);
+          // alert('Go to voting screen!');
+          this.router.navigate(['room/' + this.roomId + '/voting']);
+        });
+    }
   }
 
   goBack() {

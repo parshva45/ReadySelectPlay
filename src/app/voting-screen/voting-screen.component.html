@@ -13,7 +13,7 @@
 <div class="col-12" style="height:64px;"></div>
 <mat-list>
   <mat-list-item *ngFor="let game of games">
-    <mat-checkbox style="left: 10;position: absolute" (change)="selectedGame(game)">
+    <mat-checkbox style="position: absolute" (change)="selectedGame(game)">
 
     </mat-checkbox>
       <img style="margin-left: 40px" matListAvatar src="{{game.thumbnail}}" alt="No Image">
@@ -31,6 +31,7 @@
 </mat-list>
 
 <button type="button"
+        [ngClass]="{disabled: result.length === 0}"
         (click)="submitVote()"
         class="btn btn-dark btn-lg btn-block start-voting-btn">
   Submit Vote

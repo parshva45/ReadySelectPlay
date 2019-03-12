@@ -34,7 +34,7 @@ export class GamesComponent implements OnInit {
         //     }
         //   }
         // }
-        console.log(mechanics.sort());
+        // console.log(mechanics.sort());
       });
   }
 
@@ -45,7 +45,9 @@ export class GamesComponent implements OnInit {
         if (game.gameId) {
           this.gameService
             .createGame(game)
-            .then(resp => console.log(resp.gameId));
+            .then(resp => {
+              // console.log(resp.gameId)
+            });
         }
       });
   }

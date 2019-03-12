@@ -17,7 +17,6 @@ export class HomeComponent implements OnInit {
   rooms = [];
 
   openSnackBar(message) {
-    const config = new MatSnackBarConfig();
     this.snackBar.open(message, null, {
       duration: 4000,
       panelClass: ['snackbar-position'],

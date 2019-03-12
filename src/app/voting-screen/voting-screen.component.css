@@ -44,3 +44,7 @@
   left: 0;
   right: 0;
 }
+
+::ng-deep snack-bar-container.snackbar-position {
+  margin-bottom: 25% !important;
+}

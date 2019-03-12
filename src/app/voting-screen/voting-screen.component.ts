@@ -3,6 +3,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {RoomServiceClient} from '../services/room.service.client';
 import {GameServiceClient} from '../services/game.service.client';
 import {Location} from '@angular/common';
+import {MatSnackBar} from '@angular/material';
 
 @Component({
   selector: 'app-voting-screen',
@@ -16,7 +17,8 @@ export class VotingScreenComponent implements OnInit {
               private router: Router,
               private location: Location,
               private roomService: RoomServiceClient,
-              private gameService: GameServiceClient) {
+              private gameService: GameServiceClient,
+              private snackBar: MatSnackBar) {
     this.route.params.subscribe(params => this.roomId = params['roomId']);
   }
   vm = this;
@@ -40,15 +42,21 @@ export class VotingScreenComponent implements OnInit {
     } else {
       this.result.push(game.gameId);
     }
-    console.log(this.result);
   }
   submitVote() {
-    const item = this.result[Math.floor(Math.random() * this.result.length)] ;
-    this.roomService.addResult(this.roomId, item)
-      .then(res => {
-        console.log(res);
-        this.router.navigate(['room/' + this.roomId + '/voting/count']);
+    if (this.result.length === 0) {
+      this.snackBar.open('Please vote for at least one game!', null, {
+        duration: 4000,
+        panelClass: ['snackbar-position'],
+        verticalPosition: 'bottom'
       });
+    } else {
+      const item = this.result[Math.floor(Math.random() * this.result.length)] ;
+      this.roomService.addResult(this.roomId, item)
+        .then(res => {
+          this.router.navigate(['room/' + this.roomId + '/voting/count']);
+        });
+    }
   }
 
   ngOnInit() {

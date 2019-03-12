@@ -3,7 +3,7 @@
     Voting Count
   </h3>
 </nav>
-<div class="col-12" style="height:64px;"></div>
+<div class="col-12" style="height:80px;"></div>
 
 
 <div class="container-fluid">
@@ -11,12 +11,14 @@
     <br>
     Please wait until everyone has voted.</p>
   <br>
-  <p class="-header">Number of votes received</p>
+  <p class="-header">Number of people voted</p>
   <div class="card">
     <div class="card-body">
-      5
+      {{roomUsersCount}}
     </div>
   </div>
+  <br>
+  <p class="-header">End the voting process when you feel everyone has voted</p>
 </div>
 <button type="button"
         (click)="viewResult()"
