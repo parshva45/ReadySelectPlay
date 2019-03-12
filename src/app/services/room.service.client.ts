@@ -6,6 +6,16 @@ export class RoomServiceClient {
 
   ROOM_URL = this.VARIABLE_URL + '/api/room';
 
+  setName(roomId, name) {
+    return fetch(this.ROOM_URL + '/' + roomId + '/name', {
+      body: JSON.stringify(name),
+      method: 'put',
+      headers: {
+        'content-type': 'application/json'
+      }
+    }).then(response => response.json());
+  }
+
   addUser(roomId, userId) {
     return fetch(this.ROOM_URL + '/' + roomId + '/user/add', {
       body: JSON.stringify({userId}),

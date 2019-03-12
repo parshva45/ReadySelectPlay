@@ -9,14 +9,66 @@
     Room Details
   </h3>
 </nav>
-<div class="col-12" style="height:64px;"></div>
+<div class="col-12" style="height:70px;"></div>
 
 <div class="container-fluid">
-  <div class="form-group">
-    <label>Room Name</label>
-    <input [(ngModel)]="roomName"
-           placeholder="Enter Room Name"
-           class="form-control"/>
+  <div class="form-group row">
+    <div class="col-4">
+      <label style="margin-top: 7px; float: right;">Room Name</label>
+    </div>
+    <div class="col-8">
+      <input [(ngModel)]="roomName"
+             placeholder="Enter Room Name"
+             class="form-control"/>
+    </div>
+  </div>
+</div>
+
+<div class="card" style="background-color: whitesmoke;margin-bottom: 20px">
+  <div class="card-header">
+    Friends
+  </div>
+</div>
+<div class="card-body" style="width: 100%;">
+  <div class="list-group">
+    <div *ngFor="let person of users; index as i">
+      <div class="list-group-item">
+        <div class="row">
+          <div class="avatar-icon col-xl-1 col-2 " style="margin-left: 1%">
+            <img width="10px" src={{person.imageSrc}}>
+          </div>
+          <div style="left:10%; position: relative;" class="col-xl-10 col-8 ">
+            {{person.name}}
+            <br>
+            {{person.email}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card" style="background-color: whitesmoke;margin-bottom: 20px">
+  <div class="card-header">
+    Games
+  </div>
+</div>
+<div class="card-body" style="width: 100%">
+  <div class="list-group" >
+    <div *ngFor="let game of games; index as i">
+      <div class="list-group-item">
+        <div class="row">
+          <div class="avatar-icon col-xl-1 col-2 " style="margin-left: 1%">
+            <img width="10px" src={{game.image}}>
+          </div>
+          <div style="left:10%; position: relative;" class="col-xl-10 col-8 ">
+            {{game.name}}
+            <br>
+            {{game.yearPublished}}
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -30,46 +82,46 @@
 
 <!--<div><input class="roomNameBox" type="text" value="Set Room Name"></div>-->
 <!--<div class="row searchBox">-->
-  <!--<div class="col-sm-12 searchBox-inner">-->
-    <!--<div class="form-group has-feedback">-->
-      <!--<input id="searchText"-->
-             <!--[(ngModel)]="searchText"-->
-             <!--(keyup)="search(searchText)"-->
-             <!--type="text"-->
-             <!--class="form-control"-->
-             <!--name="searchText"-->
-             <!--placeholder="Search">-->
-      <!--<span class="glyphicon glyphicon-search form-control-feedback"></span>-->
-    <!--</div>-->
-  <!--</div>-->
+<!--<div class="col-sm-12 searchBox-inner">-->
+<!--<div class="form-group has-feedback">-->
+<!--<input id="searchText"-->
+<!--[(ngModel)]="searchText"-->
+<!--(keyup)="search(searchText)"-->
+<!--type="text"-->
+<!--class="form-control"-->
+<!--name="searchText"-->
+<!--placeholder="Search">-->
+<!--<span class="glyphicon glyphicon-search form-control-feedback"></span>-->
+<!--</div>-->
+<!--</div>-->
 <!--</div>-->
 
 <!--<div class="card" style="background-color: whitesmoke;margin-bottom: 20px">-->
-  <!--<div class="card-header">-->
-    <!--Friends-->
-  <!--</div>-->
+<!--<div class="card-header">-->
+<!--Friends-->
+<!--</div>-->
 <!--</div>-->
 <!--<div class="card-body" style="width: 100%">-->
-  <!--<div class="list-group" >-->
-    <!--<div *ngFor="let person of filteredPeople; index as i">-->
-      <!--<div (click)="select(person, i)" class="list-group-item">-->
-        <!--<div class="row">-->
-          <!--&lt;!&ndash;<div class="avatar-icon col-1 col-sm-2" style="margin-left: 1%">&ndash;&gt;-->
-          <!--<div class="avatar-icon col-xl-1 col-2 " style="margin-left: 1%">-->
-            <!--<img width="10px" src={{person.src}}>-->
-          <!--</div>-->
-          <!--&lt;!&ndash;<div style="left: 0; position: relative;" class="col-10 col-xs-8">&ndash;&gt;-->
-          <!--<div style="left:10%; position: relative;" class="col-xl-10 col-8 ">-->
-            <!--{{person.name}}-->
-            <!--<br>-->
-            <!--{{person.email}}-->
-          <!--</div>-->
-          <!--&lt;!&ndash;<span class="col-1 col-xs-2" style="right: 0; position: absolute;margin-top: 15px">&ndash;&gt;-->
-          <!--<span class="col-xl-1 col-2" style="right: 0; position: absolute;margin-top: 15px">-->
-              <!--<i style="" class="fa fa-plus" aria-hidden="true"></i>-->
-            <!--</span>-->
-        <!--</div>-->
-      <!--</div>-->
-    <!--</div>-->
-  <!--</div>-->
+<!--<div class="list-group" >-->
+<!--<div *ngFor="let person of filteredPeople; index as i">-->
+<!--<div (click)="select(person, i)" class="list-group-item">-->
+<!--<div class="row">-->
+<!--&lt;!&ndash;<div class="avatar-icon col-1 col-sm-2" style="margin-left: 1%">&ndash;&gt;-->
+<!--<div class="avatar-icon col-xl-1 col-2 " style="margin-left: 1%">-->
+<!--<img width="10px" src={{person.src}}>-->
+<!--</div>-->
+<!--&lt;!&ndash;<div style="left: 0; position: relative;" class="col-10 col-xs-8">&ndash;&gt;-->
+<!--<div style="left:10%; position: relative;" class="col-xl-10 col-8 ">-->
+<!--{{person.name}}-->
+<!--<br>-->
+<!--{{person.email}}-->
+<!--</div>-->
+<!--&lt;!&ndash;<span class="col-1 col-xs-2" style="right: 0; position: absolute;margin-top: 15px">&ndash;&gt;-->
+<!--<span class="col-xl-1 col-2" style="right: 0; position: absolute;margin-top: 15px">-->
+<!--<i style="" class="fa fa-plus" aria-hidden="true"></i>-->
+<!--</span>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
 <!--</div>-->

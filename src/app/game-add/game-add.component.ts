@@ -29,7 +29,8 @@ export class GameAddComponent implements OnInit {
   search(searchText) {
     searchText = searchText.toLowerCase();
     this.filteredGames = this.games.filter(game => {
-      return game.name.toLowerCase().includes(searchText) && this.selected.indexOf(game) === -1;
+      return (game.name.toLowerCase().includes(searchText) || (game.yearPublished.toString()).includes(searchText))
+        && this.selected.indexOf(game) === -1;
     });
   }
 

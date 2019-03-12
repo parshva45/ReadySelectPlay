@@ -19,3 +19,9 @@
   text-align: center;
   font-style: italic;
 }
+
+.avatar-icon img {
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+}
