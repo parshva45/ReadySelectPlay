@@ -14,7 +14,10 @@ export class GameResultComponent implements OnInit {
     this.route.params.subscribe(params => this.getRoomResult(params));
   }
 
-  game = '';
+  game = {
+    image: '',
+    name: ''
+  };
   getRoomResult(params) {
     const roomId = params['roomId'];
     this.roomService.getRoomResult(roomId)

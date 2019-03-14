@@ -17,7 +17,17 @@ export class GameDetailsComponent implements OnInit {
   }
 
   gameId = '';
-  game = {};
+  game = {
+    thumbnail: '',
+    name: '',
+    minPlayers: '',
+    maxPlayers: '',
+    playingTime: '',
+    complexity: '',
+    category: '',
+    mechanics: [],
+    description: ''
+  };
 
   setGameId(params) {
     this.gameId = params['gameId'];

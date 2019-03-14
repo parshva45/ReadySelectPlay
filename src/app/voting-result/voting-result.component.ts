@@ -14,7 +14,11 @@ export class VotingResultComponent implements OnInit {
     this.route.params.subscribe(params => this.getRoomResult(params));
   }
 
-  game = '';
+  game = {
+    thumbnail: '',
+    name: '',
+    gameId: ''
+  };
   roomId = '';
 
   getRoomResult(params) {
