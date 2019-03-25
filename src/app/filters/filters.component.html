@@ -161,7 +161,7 @@
   </mat-sidenav>
 
   <mat-list>
-    <mat-list-item *ngFor="let game of filteredGames">
+    <mat-list-item *ngFor="let game of filteredGames" (click)="goToGameDetails(game.gameId)">
       <img matListAvatar src="{{game.thumbnail}}" alt="No Image">
       <h3 matLine> {{game.name}} </h3>
       <p matLine>
@@ -170,7 +170,6 @@
         &nbsp;<i class="fas fa-tag"></i> {{game.category}}<br>
       </p>
       <button type="button"
-              (click)="goToGameDetails(game.gameId)"
               class="btn info-button">
         <i class="fas fa-info-circle"></i>
       </button>
