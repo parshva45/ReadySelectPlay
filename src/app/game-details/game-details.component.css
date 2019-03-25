@@ -1,7 +1,12 @@
-.img-left align-middle{
+.img-left{
   display: inline-block;
   position: relative;
   float: left;
+  vertical-align:center;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
 }
 
 .imagethumbnail {
@@ -39,3 +44,6 @@
   margin-bottom: 15px;
 }
 
+#toprow {
+  min-height: 150px;
+}
