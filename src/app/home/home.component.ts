@@ -55,7 +55,7 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.roomService
       .getAllRooms()
-      .then(rooms => this.rooms = rooms);
+      .then(rooms => this.rooms = rooms.reverse());
   }
 
 }

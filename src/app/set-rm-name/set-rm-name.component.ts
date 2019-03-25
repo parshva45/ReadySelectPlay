@@ -41,7 +41,16 @@ export class SetRmNameComponent implements OnInit {
     userIds.forEach(userId => {
       this.userService
         .getUserById(userId)
-        .then(user => this.users.push(user));
+        .then(user => {
+          this.users.push(user);
+          if (this.users.length === userIds.length) {
+            this.users.sort((a, b) => {
+              const textA = a.name.toUpperCase();
+              const textB = b.name.toUpperCase();
+              return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+            });
+          }
+        });
     });
   }
 
@@ -49,7 +58,16 @@ export class SetRmNameComponent implements OnInit {
     gameIds.forEach(gameId => {
       this.gameService
         .getGameById(gameId)
-        .then(game => this.games.push(game));
+        .then(game => {
+          this.games.push(game);
+          if (this.games.length === gameIds.length) {
+            this.games.sort((a, b) => {
+              const textA = a.name.toUpperCase();
+              const textB = b.name.toUpperCase();
+              return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+            });
+          }
+        });
     });
   }
 

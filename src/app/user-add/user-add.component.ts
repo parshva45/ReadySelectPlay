@@ -32,6 +32,7 @@ export class UserAddComponent implements OnInit {
       return (user.name.toLowerCase().includes(searchText) ||
         user.email.toLowerCase().includes(searchText)) && this.selected.indexOf(user) === -1;
     });
+    this.sortFilteredPeople();
   }
 
   select(ppl, index) {
@@ -40,6 +41,8 @@ export class UserAddComponent implements OnInit {
       .then(response => {
         this.filteredPeople.splice(index, 1);
         this.selected.push(ppl);
+        this.sortFilteredPeople();
+        this.sortSelectedPeople();
       });
   }
 
@@ -49,6 +52,8 @@ export class UserAddComponent implements OnInit {
       .then(response => {
         this.selected.splice(index, 1);
         this.filteredPeople.push(name);
+        this.sortFilteredPeople();
+        this.sortSelectedPeople();
       });
   }
 
@@ -58,6 +63,22 @@ export class UserAddComponent implements OnInit {
 
   next() {
     this.router.navigate(['room/' + this.roomId + '/games']);
+  }
+
+  sortFilteredPeople() {
+    this.filteredPeople.sort((a, b) => {
+      const textA = a.name.toUpperCase();
+      const textB = b.name.toUpperCase();
+      return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+    });
+  }
+
+  sortSelectedPeople() {
+    this.selected.sort((a, b) => {
+      const textA = a.name.toUpperCase();
+      const textB = b.name.toUpperCase();
+      return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+    });
   }
 
   ngOnInit() {
@@ -71,8 +92,10 @@ export class UserAddComponent implements OnInit {
               this.people.push(user);
               if (this.users.indexOf(user._id) > -1) {
                 this.selected.push(user);
+                this.sortSelectedPeople();
               } else {
                 this.filteredPeople.push(user);
+                this.sortFilteredPeople();
               }
             });
             }

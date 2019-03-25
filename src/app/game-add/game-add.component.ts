@@ -32,6 +32,7 @@ export class GameAddComponent implements OnInit {
       return (game.name.toLowerCase().includes(searchText) || (game.yearPublished.toString()).includes(searchText))
         && this.selected.indexOf(game) === -1;
     });
+    this.sortFilteredGames();
   }
 
   select(game, index) {
@@ -41,6 +42,8 @@ export class GameAddComponent implements OnInit {
       .then(response => {
         this.filteredGames.splice(index, 1);
         this.selected.push(game);
+        this.sortFilteredGames();
+        this.sortSelectedGames();
       });
   }
 
@@ -50,6 +53,8 @@ export class GameAddComponent implements OnInit {
       .then(response => {
         this.selected.splice(index, 1);
         this.filteredGames.push(game);
+        this.sortFilteredGames();
+        this.sortSelectedGames();
       });
   }
 
@@ -59,6 +64,22 @@ export class GameAddComponent implements OnInit {
 
   next() {
     this.router.navigate(['room/' + this.roomId + '/details']);
+  }
+
+  sortFilteredGames() {
+    this.filteredGames.sort((a, b) => {
+      const textA = a.name.toUpperCase();
+      const textB = b.name.toUpperCase();
+      return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+    });
+  }
+
+  sortSelectedGames() {
+    this.selected.sort((a, b) => {
+      const textA = a.name.toUpperCase();
+      const textB = b.name.toUpperCase();
+      return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+    });
   }
 
   ngOnInit() {
@@ -73,8 +94,10 @@ export class GameAddComponent implements OnInit {
                 this.games.push(game);
                 if (this.selectedGameIds.indexOf(game.gameId) > -1) {
                   this.selected.push(game);
+                  this.sortSelectedGames();
                 } else {
                   this.filteredGames.push(game);
+                  this.sortFilteredGames();
                 }
               });
             }
