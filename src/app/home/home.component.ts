@@ -18,7 +18,7 @@ export class HomeComponent implements OnInit {
 
   openSnackBar(message) {
     this.snackBar.open(message, null, {
-      duration: 4000,
+      duration: 2000,
       panelClass: ['snackbar-position'],
       verticalPosition: 'bottom'
     });
