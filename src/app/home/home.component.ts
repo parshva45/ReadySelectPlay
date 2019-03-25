@@ -24,6 +24,14 @@ export class HomeComponent implements OnInit {
     });
   }
 
+  openVSnackBar(message) {
+    this.snackBar.open(message, null, {
+      duration: 4000,
+      panelClass: ['snackbar-position'],
+      verticalPosition: 'bottom'
+    });
+  }
+
   editRoom(roomId, isVotingInProgress) {
     isVotingInProgress ? this.openSnackBar('Edit room operation not permitted when voting in progress!') :
       this.router.navigate(['room/' + roomId + '/friends']);
@@ -35,7 +43,8 @@ export class HomeComponent implements OnInit {
   }
 
   vote(roomId, isVotingInProgress) {
-    !isVotingInProgress ? this.openSnackBar('You cannot vote when voting is not in progress') :
+    !isVotingInProgress ?
+      this.openVSnackBar('Voting not in progress. Go to Filter Games page and Initiate Voting Process to begin voting!') :
       this.router.navigate(['room/' + roomId + '/voting']);
   }
 

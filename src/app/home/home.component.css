@@ -48,4 +48,6 @@
 
 ::ng-deep snack-bar-container.snackbar-position {
   margin-bottom: 25% !important;
+  white-space: pre-wrap !important;
+  text-align: center !important;
 }
