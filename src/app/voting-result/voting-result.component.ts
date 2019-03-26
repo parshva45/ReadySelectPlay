@@ -15,7 +15,7 @@ export class VotingResultComponent implements OnInit {
   }
 
   game = {
-    thumbnail: '',
+    image: '',
     name: '',
     gameId: ''
   };
