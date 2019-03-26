@@ -83,6 +83,7 @@ export class GameAddComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log()
 
     this.roomService
       .getRoomById(this.roomId)

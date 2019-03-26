@@ -57,6 +57,19 @@
   color: white;
 }
 
+.iconName{
+  font-family: Comic Sans MS;
+  width: 60px;
+  display: inline-block;
+  margin-top: 30px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 0.8em;
+  text-align: center;
+
+}
+
 @media screen and (max-width: 700px) {
   .app {
     top: 0;
@@ -121,6 +134,9 @@
   }
   .sideBar-time {
     padding: 10px !important;
+  }
+  .iconName{
+    margin-top: 40px;
   }
 
 }
