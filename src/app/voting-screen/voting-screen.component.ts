@@ -46,7 +46,7 @@ export class VotingScreenComponent implements OnInit {
   submitVote() {
     if (this.result.length === 0) {
       this.snackBar.open('Please vote for at least one game!', null, {
-        duration: 4000,
+        duration: 2000,
         panelClass: ['snackbar-position'],
         verticalPosition: 'bottom'
       });

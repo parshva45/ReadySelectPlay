@@ -163,7 +163,7 @@ export class FiltersComponent implements OnInit {
   initializeVoting() {
     if (this.filteredGames.length === 0) {
       this.snackBar.open('At least one game should be present!', null, {
-        duration: 4000,
+        duration: 2000,
         panelClass: ['snackbar-position'],
         verticalPosition: 'bottom'
       });
