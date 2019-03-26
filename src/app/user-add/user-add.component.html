@@ -29,7 +29,7 @@
 </div>
 
 
-<div *ngIf="selected.length > 0 " style="margin-bottom: 30px" class="container-fluid selected_user">
+<div *ngIf="selected.length > 0 " style="" class="container-fluid selected_user">
   <!--<div class="row">-->
   <!--<div class="col-8" >Number of Friends:</div>-->
   <!--<div class="col-4 card">-->
@@ -40,19 +40,24 @@
   <!--</div>-->
   <div class="row">
     <div *ngFor="let name of selected; index as i" style="margin: 10px; margin-bottom: 20px">
-      <div class="avatar-icon" style="margin-top: 20px">
+      <div>
+        <div class="avatar-icon col">
         <span (click)="unselect(name, i)">
           <i style="margin-left: 40px;color: red" class="fa fa-times-circle" aria-hidden="true"></i>
         </span>
-        <img src="{{name.imageSrc}}" style="position: absolute; z-index: -1; margin-left: -48px;margin-top: 3px;"
-             width="100" height="100">
+          <img src="{{name.imageSrc}}" style="position: absolute; z-index: -1; margin-left: -48px;margin-top: 3px;"
+               width="100" height="100">
+        </div>
+        <div class="iconName">
+          {{name.name}}
+        </div>
       </div>
     </div>
   </div>
 </div>
 
 
-<div class="card" style="background-color: whitesmoke;margin-bottom: 20px">
+<div class="card" style="background-color: whitesmoke;margin-bottom: 20px;">
   <div class="card-header">
     Friends
   </div>
