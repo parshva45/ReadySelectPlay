@@ -1,11 +1,21 @@
 export class RoomServiceClient {
 
-  // LOCAL_URL = 'http://localhost:4000';
+  LOCAL_URL = 'http://localhost:4000';
   REMOTE_URL = 'https://ready-select-play-server.herokuapp.com';
 
-  VARIABLE_URL = this.REMOTE_URL;
+  VARIABLE_URL = this.LOCAL_URL;
 
   ROOM_URL = this.VARIABLE_URL + '/api/room';
+
+  addVotes(roomId, voteList) {
+    return fetch(this.ROOM_URL + '/' + roomId + '/vote', {
+      body: JSON.stringify({voteList}),
+      method: 'put',
+      headers: {
+        'content-type': 'application/json'
+      }
+    }).then(response => response.json());
+  }
 
   setName(roomId, name) {
     return fetch(this.ROOM_URL + '/' + roomId + '/name', {

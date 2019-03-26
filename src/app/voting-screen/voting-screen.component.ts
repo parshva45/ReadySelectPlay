@@ -52,10 +52,11 @@ export class VotingScreenComponent implements OnInit {
       });
     } else {
       const item = this.result[Math.floor(Math.random() * this.result.length)] ;
-      this.roomService.addResult(this.roomId, item)
+      this.roomService.addVotes(this.roomId, this.result)
         .then(res => {
           this.router.navigate(['room/' + this.roomId + '/voting/count']);
         });
+      // this.roomService.addResult(this.roomId, item)
     }
   }
 

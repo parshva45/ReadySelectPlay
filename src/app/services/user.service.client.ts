@@ -1,9 +1,9 @@
 export class UserServiceClient {
 
-  // LOCAL_URL = 'http://localhost:4000';
+  LOCAL_URL = 'http://localhost:4000';
   REMOTE_URL = 'https://ready-select-play-server.herokuapp.com';
 
-  VARIABLE_URL = this.REMOTE_URL;
+  VARIABLE_URL = this.LOCAL_URL;
 
   USER_URL = this.VARIABLE_URL + '/api/user';
 
