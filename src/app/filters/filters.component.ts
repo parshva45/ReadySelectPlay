@@ -29,8 +29,8 @@ export class FiltersComponent implements OnInit {
   opened = false;
   noOfFilters = null;
   complexities = ['Light', 'Medium Light', 'Medium', 'Medium Heavy', 'Heavy'];
-  categories = ['Adventure', 'Bluffing', 'Card Game', 'Deduction',
-    'Dice', 'Educational', 'Fighting', 'Horror', 'Number', 'Science Fiction'];
+  categories = ['Abstract Strategy', 'Adventure', 'Animals', 'Bluffing', 'Card Game', 'Children\'s Game', 'Deduction', 'Dice', 'Economic',
+    'Educational', 'Fantasy', 'Fighting', 'Horror', 'Maze', 'Medieval', 'Number', 'Racing', 'Science Fiction', 'Territory Building'];
   mechanics = ['Acting', 'Action / Movement Programming', 'Action Point Allowance System',
     'Area Control / Area Influence', 'Area Enclosure', 'Area Movement', 'Area-Impulse', 'Auction/Bidding',
     'Betting/Wagering', 'Campaign / Battle Card Driven', 'Card Drafting', 'Chit-Pull System',
