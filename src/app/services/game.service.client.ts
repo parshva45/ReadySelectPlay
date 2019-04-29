@@ -1,7 +1,7 @@
 export class GameServiceClient {
 
   LOCAL_URL = 'http://localhost:4000';
-  REMOTE_URL = 'https://ready-select-play-server.herokuapp.com';
+  REMOTE_URL = 'https://ready-select-play-node.herokuapp.com';
 
   VARIABLE_URL = this.REMOTE_URL;
 

@@ -61,10 +61,23 @@ export class HomeComponent implements OnInit {
       });
   }
 
+  deleteRoom(roomId, i) {
+    this.roomService
+      .deleteRoom(roomId)
+      .then(res => this.rooms.splice(i, 1));
+  }
+
   ngOnInit() {
     this.roomService
       .getAllRooms()
-      .then(rooms => this.rooms = rooms.reverse());
+      .then(rooms => {
+        rooms.sort((a, b) => {
+          const textA = a.name.toUpperCase();
+          const textB = b.name.toUpperCase();
+          return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+        });
+        this.rooms = rooms;
+      });
   }
 
 }
