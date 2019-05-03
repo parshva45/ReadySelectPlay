@@ -47,14 +47,16 @@ export class UserAddComponent implements OnInit {
   }
 
   unselect(name, index) {
-    this.roomService
-      .removeUser(this.roomId, name._id)
-      .then(response => {
-        this.selected.splice(index, 1);
-        this.filteredPeople.push(name);
-        this.sortFilteredPeople();
-        this.sortSelectedPeople();
-      });
+    if (name.name !== 'patty1234') {
+      this.roomService
+        .removeUser(this.roomId, name._id)
+        .then(response => {
+          this.selected.splice(index, 1);
+          this.filteredPeople.push(name);
+          this.sortFilteredPeople();
+          this.sortSelectedPeople();
+        });
+    }
   }
 
   goBack() {
