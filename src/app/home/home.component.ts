@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {RoomServiceClient} from '../services/room.service.client';
 import {Router} from '@angular/router';
-import {MatSnackBar, MatSnackBarConfig} from '@angular/material';
+import {MatSnackBar} from '@angular/material';
 
 @Component({
   selector: 'app-home',

@@ -12,13 +12,21 @@
 
 <div class="container-fluid">
 <div class="row">
-  <div class="col-6" *ngFor="let room of rooms; index as i">
+  <div class="col-6 col-sm-4 col-md-3 col-lg-2" *ngFor="let room of rooms; index as i">
     <div class="card bg-light"
-         style="margin-bottom: 20px;"
-         matBadge="&#10006;"
-         matBadgeColor="warn">
-      <div class="card-header text-center" (click)="deleteRoom(room._id, i)">
-        <h5>{{room.name}}</h5>
+         style="margin-bottom: 20px;">
+      <div class="card-header text-center"
+           mwlConfirmationPopover
+           popoverTitle="Delete {{room.name}}?"
+           popoverMessage="Are you sure you want to delete the {{room.name}}?"
+           placement="bottom"
+           confirmText="Delete"
+           cancelText="Cancel"
+           (confirm)="deleteRoom(room._id, i)"
+           confirmButtonType="danger"
+           cancelButtonType="light">
+        <h5 matBadge="&#10006;"
+            matBadgeColor="warn">{{room.name}}</h5>
       </div>
       <div class="card-body">
         <p class="card-text text-center" style="font-size: 1.25rem;">

@@ -23,6 +23,7 @@ import { UserServiceClient} from './services/user.service.client';
 import { GameAddComponent } from './game-add/game-add.component';
 import { SetRmNameComponent} from './set-rm-name/set-rm-name.component';
 import { VotingScreenComponent} from './voting-screen/voting-screen.component';
+import { ConfirmationPopoverModule } from 'angular-confirmation-popover';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { VotingScreenComponent} from './voting-screen/voting-screen.component';
     MatListModule,
     MatSidenavModule,
     MatCheckboxModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    ConfirmationPopoverModule.forRoot({})
   ],
   providers: [
     GameServiceClient,
