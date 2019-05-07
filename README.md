@@ -1,7 +1,7 @@
 
-# LINK TO INFORMATION ON HOW TO SET UP AND RUN:
-https://docs.google.com/document/d/1ARMw3orxln6BVFkjOqTQllblbUGZpTonV1vGxv9ww64/edit?usp=sharing
+# Start-up Instructions, briefing and tasks:
 
+https://sites.google.com/view/ready-select-play
 
 # ReadySelectPlay
 
